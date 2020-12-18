@@ -1,0 +1,7 @@
+D:\git\github.com\geekbrains_cs_course1\HomeWork\HomeWork.Lesson1.Task1\obj\Release\HomeWork.Lesson1.Task1.csprojAssemblyReference.cache
+D:\git\github.com\geekbrains_cs_course1\HomeWork\HomeWork.Lesson1.Task1\obj\Release\HomeWork.Lesson1.Task1.csproj.CoreCompileInputs.cache
+D:\git\github.com\geekbrains_cs_course1\HomeWork\HomeWork.Lesson1.Task1\obj\Release\HomeWork.Lesson1.Task1.exe
+D:\git\github.com\geekbrains_cs_course1\HomeWork\HomeWork.Lesson1.Task1\obj\Release\HomeWork.Lesson1.Task1.pdb
+D:\git\github.com\geekbrains_cs_course1\HomeWork\HomeWork.Lesson1.Task1\test\HomeWork.Lesson1.Task1.exe.config
+D:\git\github.com\geekbrains_cs_course1\HomeWork\HomeWork.Lesson1.Task1\test\HomeWork.Lesson1.Task1.exe
+D:\git\github.com\geekbrains_cs_course1\HomeWork\HomeWork.Lesson1.Task1\test\HomeWork.Lesson1.Task1.pdb
