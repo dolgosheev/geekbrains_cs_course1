@@ -1,18 +1,22 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace HomeWork.Lesson7.Task1
 {
+    public delegate void Nothing();
+    
+
     public partial class MainForm : Form
     {
         public Doubler DoublerGame;
         public GuessTheNumber GuessTheNumber;
+        private Nothing winnerCheck;
+        private Action<int, int> setAction;
 
         public MainForm()
         {
             InitializeComponent();
             tbG2Own.KeyPress += CheckEnter;
-
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
@@ -41,30 +45,36 @@ namespace HomeWork.Lesson7.Task1
             labelG1CountStepsSum.Visible = true;
             
             DoublerGame = new Doubler();
+            winnerCheck += DoublerGame.CheckResult;
+            setAction += SetAction;
+
             labelG1Number.Text = DoublerGame.Victory.ToString();
             labelG1YourNumber.Text = DoublerGame.Own.ToString();
-
+            
             MessageBox.Show($"Вы должены постараться получить число {DoublerGame.Victory.ToString()} за минимальное количество ходов", "Игра \"Удвоитель\" начата");
+        }
+
+        private void SetAction(int arg1, int arg2)
+        {
+            labelG1YourNumber.Text = arg1.ToString();
+            labelG1CountStepsSum.Text = arg2.ToString();
         }
 
         private void buttonG1Plus_Click(object sender, EventArgs e)
         {
-            labelG1YourNumber.Text = DoublerGame.Plus().ToString();
-            labelG1CountStepsSum.Text = DoublerGame.SummSteps().ToString();
-            DoublerGame.CheckResult();
+            setAction?.Invoke(DoublerGame.Plus(), DoublerGame.SummSteps());
+            winnerCheck?.Invoke();
         }
 
         private void buttonG1Multi_Click(object sender, EventArgs e)
         {
-            labelG1YourNumber.Text = DoublerGame.Multi().ToString();
-            labelG1CountStepsSum.Text = DoublerGame.SummSteps().ToString();
-            DoublerGame.CheckResult();
+            setAction?.Invoke(DoublerGame.Multi(), DoublerGame.SummSteps());
+            winnerCheck?.Invoke();
         }
 
         private void buttonG1Back_Click(object sender, EventArgs e)
         {
-            labelG1YourNumber.Text = DoublerGame.Back().ToString();
-            labelG1CountStepsSum.Text = DoublerGame.SummSteps().ToString();
+            setAction?.Invoke(DoublerGame.Back(), DoublerGame.SummSteps());
         }
 
         #endregion
